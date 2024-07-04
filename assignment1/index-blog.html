@@ -40,12 +40,15 @@
                 <div class="resume-section-content">
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" src="assets/img/replace-programmers.jpg" alt="Will ChatGPT replace Programmers?" /></a>
                         <div class="card-body">
-                            <div class="small text-muted">January 1, 2023</div>
-                            <h2 class="card-title">Featured Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
+                            <div class="small text-muted">July 4, 2024</div>
+                            <h2 class="card-title">Will my degree be obsolete?</h2>
+                            <p class="card-text">LLM's like ChatGPT can write better, cleaner code faster than a human. Will programmers be obsolete within the next year or two?</p>
+                            <a id= more-ai-replaced class="btn btn-primary" onclick=showBlog('ai-replaced')  href="#">Read more →</a>
+                            <div id="ai-replaced" class="article-body" style="display: none;">
+                                <p>My thoughts on being replaced.</p>
+                            </div>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
@@ -53,12 +56,15 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                                <a href="#!"><img class="card-img-top" src="assets/img/chatgpt.jpg" alt="ChatGPT AI" /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">January 1, 2023</div>
                                     <h2 class="card-title h4">Post Title</h2>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
+                                    <a id=more-chatgpt class="btn btn-primary" href="#" onclick=showBlog('chatgpt')>Read more →</a>
+                                    <div id="chatgpt" style="display: none;"">
+                                        This was another blog post
+                                    </div>
                                 </div>
                             </div>
                         </div>
