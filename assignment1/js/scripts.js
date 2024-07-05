@@ -40,6 +40,7 @@ window.addEventListener('DOMContentLoaded', event => {
         if ( document.getElementById(article).style.display == 'none' ) {
             document.getElementById(article).style.display='block'; //Show desired form
             document.getElementById(articleToggle).innerHTML='Close x';
+            document.getElementById(articleToggle).focus();
         }else {
         // if article is open, close it
             document.getElementById(article).style.display='none'; //Show desired form
