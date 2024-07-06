@@ -34,18 +34,22 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-    function showBlog(article){
-        var articleToggle =  "more-" + article;
-        // if article is hidden show it
-        if ( document.getElementById(article).style.display == 'none' ) {
-            document.getElementById(article).style.display='block'; //Show desired form
-            document.getElementById(articleToggle).innerHTML='Close x';
-            document.getElementById(article).firstChild.focus();
-        }else {
-        // if article is open, close it
-            document.getElementById(article).style.display='none'; //Show desired form
-            document.getElementById(articleToggle).innerHTML='Read More →';
-        }
-        return true;
+function showBlog(article){
+    var articleToggle =  "more-" + article;
+    // if article is hidden show it
+    if ( document.getElementById(article).style.display == 'none' ) {
+        document.getElementById(article).style.display='block'; //Show desired form
+        document.getElementById(articleToggle).innerHTML='Close x';
+        document.getElementById('article-start').focus();
+    }else {
+    // if article is open, close it
+        document.getElementById(article).style.display='none'; //Show desired form
+        document.getElementById(articleToggle).innerHTML='Read More →';
     }
+    return true;
+}
+
+function openEmail() {
+    var emailMessage =  bv
+}
 
