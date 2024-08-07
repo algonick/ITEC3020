@@ -361,7 +361,9 @@ label {
 }
 
 button {
-  border-radius: 0;
+  border-radius: 1rem;
+  padding: 0.15rem 0.5rem
+  background-color: rgba(255, 255, 255, 0.5)
 }
 
 button:focus:not(:focus-visible) {
@@ -10951,6 +10953,10 @@ p.lead {
     max-height: 10rem;
     border: 0.5rem solid rgba(255, 255, 255, 0.2);
   }
+  .navbar.dark #sideNav .navbar-brand .img-profile  {
+    border: 0.5rem solid rgba(255, 255, 255, 0.5);
+  }
+
   #sideNav .navbar-collapse {
     display: flex;
     align-items: flex-start;
