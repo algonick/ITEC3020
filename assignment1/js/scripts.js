@@ -63,21 +63,19 @@ function toggleView() {
     var toggleValue = toggleButton.className;
 
     if (toggleValue == "light"){
-        //if light view, switch to dark //
-        
+        //if light view, switch to dark //        
         document.body.classList.add('dark');
         document.getElementById('sideNav').classList.add('dark');
+        //change toggle button values
         toggleButton.classList.add('dark');
-
         document.getElementById('viewName').textContent = 'Light';
 
     } else {
-        //if dark view, switch to light //
-        
+        //if dark view, switch to light.  Light is default//        
         document.body.classList.remove('dark');
         document.getElementById('sideNav').classList.remove('dark');
+        //change toggle button values
         toggleButton.classList.remove('dark');
-
         document.getElementById('viewName').textContent = 'Dark';
 
     }
