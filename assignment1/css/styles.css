@@ -136,7 +136,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 }
 
 body.dark h6, body.dark .h6, body.dark h5, body.dark .h5, body.dark h4, body.dark .h4, body.dark h3, body.dark .h3, body.dark h2, body.dark .h2, body.dark h1, body.dark .h1 {
-  color: #cad9e8;
+  color: #Fff;
 }
 
 h1, .h1 {
@@ -3648,6 +3648,13 @@ textarea.form-control-lg {
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+
+.nav.dark {color: var(--bs-nav-dark-link-color);}
+.nav-link.dark {
+  color: var(--bs-nav-link-dark-color);
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
     transition: none;
@@ -3750,6 +3757,7 @@ textarea.form-control-lg {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
   --bs-navbar-color: rgba(0, 0, 0, 0.55);
+  --bs-navbar-dark-color: rgba(0, 0, 0, 1);
   --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
   --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
   --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
@@ -6689,6 +6697,11 @@ textarea.form-control-lg {
 .text-bg-primary {
   color: #000 !important;
   background-color: RGBA(189, 93, 56, var(--bs-bg-opacity, 1)) !important;
+}
+
+.text-bg-primary.dark {
+  color: #FFF !important;
+  background-color: RGBA(109, 40, 13, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-secondary {
