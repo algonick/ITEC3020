@@ -58,7 +58,7 @@ function openEmail() {
     var emailMessage =  bv
 }
 
-function toggleView(mode) {
+function toggleView() {
     var toggleValue = "light";    //view mode default is "light".  
 
     //If page already set to 'dark', set that. (Otherwise, keep default) 
@@ -70,9 +70,7 @@ function toggleView(mode) {
 
     //If there's a value passed (in URL), use that.   Otherwise keep value as set
     var mode = checkMode();
-    if (mode) {
-        toggleValue = mode;   
-    }
+    if (mode) { toggleValue = mode; }
 
     if (toggleValue == "light"){
         //if light view, switch to dark //        
@@ -120,8 +118,7 @@ function checkMode() {
 
     alert('extras: '+ extras + '; mode: ' + mode + '; modeValue: ' + modeValue);
 
-    if (modeValue) {
-        toggleView(modeValue);
-    }
+   return modeValue;
+
     
 }
