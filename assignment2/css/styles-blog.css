@@ -345,7 +345,9 @@ label {
 }
 
 button {
-  border-radius: 0;
+  border-radius: 1rem;
+  padding: 0.15rem 0.5rem
+  background-color: rgba(255, 255, 255, 0.5)
 }
 
 button:focus:not(:focus-visible) {
