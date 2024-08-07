@@ -66,19 +66,21 @@ function toggleView() {
         //if light view, switch to dark //
         alert("was light view");
         document.getElementById('viewName').textContent = 'dark';
-        document.body.style.background = dark_Bodybgcolor;
-        document.body.style.color = dark_Bodytext;
-        document.getElementById('sideNav').classList.remove('bg-primary');
-        document.getElementById('sideNav').classList.add('bg-primary-dark');
+        
+        document.body.style.classList.add('dark');
+        document.getElementById('sideNav').classList.add('dark');
+        toggleButton.classList.add('dark');
+
         alert("now dark view");
     } else {
         //if dark view, switch to light //
         alert("was dark view");
         document.getElementById('viewName').textContent = 'light';
-        document.body.style.background = light_Bodybgcolor;
-        document.body.style.color = light_Bodytext;
-        document.getElementById('sideNav').classList.remove('bg-primary-dark');
-        document.getElementById('sideNav').classList.add('bg-primary');
+
+        document.body.style.classList.remove('dark');
+        document.getElementById('sideNav').classList.remove('dark');
+        toggleButton.classList.remove('dark');
+
         alert("now light view");
     }
 
