@@ -65,10 +65,14 @@ function toggleView() {
         alert("light view");
         viewName.innerHTML = 'light'
         document.body.style.background = light_Bodybgcolor;
+        document.getElementById('sideNav').classList.remove('bg-primary-dark');
+        document.getElementById('sideNav').classList.add('bg-primary');
     } else {
         alert("dark view");
        viewName.innerHTML = 'dark'
        document.body.style.background = dark_Bodybgcolor;
+       document.getElementById('sideNav').classList.remove('bg-primary');
+       document.getElementById('sideNav').classList.add('bg-primary-dark');
     }
 
 }
