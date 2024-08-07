@@ -7,6 +7,9 @@
 // Scripts
 // 
 
+var light_Bodybgcolor = "#FFF";
+var dark_Bodybgcolor = "#000";
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element
@@ -54,11 +57,18 @@ function openEmail() {
 }
 
 function toggleView() {
-    var toggleValue = document.getElementById('viewToggle').className;
+    var toggleButton = document.getElementById('viewToggle');
+    var toggleValue = toggleButton.className;
+    var viewName = document.getElementById('viewName');
+
     if (toggleValue == "light"){
         alert("light view");
+        viewName.innerHTML = 'light'
+        document.body.style.background = light_Bodybgcolor;
     } else {
         alert("dark view");
+       viewName.innerHTML = 'dark'
+       document.body.style.background = dark_Bodybgcolor;
     }
 
 }
