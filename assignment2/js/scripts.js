@@ -64,7 +64,7 @@ function toggleView() {
     //If page already set to 'dark', set that. (Otherwise, keep default) 
     var toggleButton = document.getElementById('viewToggle');
     var toggleClasses = toggleButton.classList;
-    if ( Array.from(toggleClasses).filter(word => word == "dark") ) { 
+    if ( toggleClasses.includes("dark") ) { 
         toggleValue = "dark";
     }
 
