@@ -67,7 +67,7 @@ function toggleView() {
         alert("was light view");
         document.getElementById('viewName').textContent = 'dark';
         
-        document.body.style.classList.add('dark');
+        document.body.classList.add('dark');
         document.getElementById('sideNav').classList.add('dark');
         toggleButton.classList.add('dark');
 
@@ -77,7 +77,7 @@ function toggleView() {
         alert("was dark view");
         document.getElementById('viewName').textContent = 'light';
 
-        document.body.style.classList.remove('dark');
+        document.body.classList.remove('dark');
         document.getElementById('sideNav').classList.remove('dark');
         toggleButton.classList.remove('dark');
 
