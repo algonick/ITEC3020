@@ -65,22 +65,22 @@ function toggleView() {
     if (toggleValue == "light"){
         //if light view, switch to dark //
         alert("was light view");
-        document.getElementById('viewName').textContent = 'Dark';
         
         document.body.classList.add('dark');
         document.getElementById('sideNav').classList.add('dark');
         toggleButton.classList.add('dark');
 
+        document.getElementById('viewName').textContent = 'Light';
         alert("now dark view");
     } else {
         //if dark view, switch to light //
         alert("was dark view");
-        document.getElementById('viewName').textContent = 'Light';
-
+        
         document.body.classList.remove('dark');
         document.getElementById('sideNav').classList.remove('dark');
         toggleButton.classList.remove('dark');
 
+        document.getElementById('viewName').textContent = 'Dark';
         alert("now light view");
     }
 
