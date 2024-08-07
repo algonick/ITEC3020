@@ -58,7 +58,7 @@ function openEmail() {
     var emailMessage =  bv
 }
 
-function toggleView() {
+function toggleView(mode) {
     var toggleValue = "light";    //view mode default is "light".  
 
     //If page already set to 'dark', set that. (Otherwise, keep default) 
