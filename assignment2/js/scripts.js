@@ -102,19 +102,33 @@ function passMode() {
 
     alert('link: '+ link + '; url: ' + url + '; section: ' + section);
 
-    var modeLink = url + "?" + currentMode + "#" + section; //add mode to url (keep hash)
+    var modeLink = url + "?mode=" + currentMode + "#" + section; //add mode to url (keep hash)
     
     window.location(modeLink);
 }
 
 function checkMode() {
+    var modeValue = null;
     var currentMode = document.getElementById('viewToggle').className;
     var link = this.href; 
     alert(link);
 
-    var extras = link.split('?')[1];   //if parameter was passed, get it
-    var mode = extras.split('#')[0];   // if there is a URL hash, get it
-    var modeValue = mode.split('=')[1];   //get the display mode from parameter
+    //if parameter was passed, get it
+    if ( link.indexOf("?") != -1 ) { 
+        var extras = link.split('?')[1]; 
+    }  
+    // if there is a URL hash, get it
+    if ( extras && extras.indexOf("#") != -1 ) {
+        var mode = extras.split('#')[0];   
+    } 
+    //get the display mode from parameter
+    if ( mode && mode.indexOf("=") != -1 ) {
+        modeValue = mode.split('=')[1];   
+    } else {
+        if (extras && extras.indexOf("=") != -1 ) {
+            modeValue = extras.split("=")[1];
+        }
+    }
 
     alert('extras: '+ extras + '; mode: ' + mode + '; modeValue: ' + modeValue);
 
