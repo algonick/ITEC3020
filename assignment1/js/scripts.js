@@ -8,7 +8,9 @@
 // 
 
 var light_Bodybgcolor = "#FFF";
+var light_Bodytext = "#6c757d";
 var dark_Bodybgcolor = "#000";
+var dark_Bodytext = "ddd"
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -59,18 +61,19 @@ function openEmail() {
 function toggleView() {
     var toggleButton = document.getElementById('viewToggle');
     var toggleValue = toggleButton.className;
-    var viewName = document.getElementById('viewName');
 
     if (toggleValue == "light"){
         alert("light view");
-        viewName.innerHTML = 'light'
+        document.getElementById('viewName').innerHTML = 'light';
         document.body.style.background = light_Bodybgcolor;
+        document.body.style.color = light_Bodytext;
         document.getElementById('sideNav').classList.remove('bg-primary-dark');
         document.getElementById('sideNav').classList.add('bg-primary');
     } else {
         alert("dark view");
-       viewName.innerHTML = 'dark'
+        document.getElementById('viewName').innerHTML = 'dark';
        document.body.style.background = dark_Bodybgcolor;
+       document.body.style.color = dark_Bodytext;
        document.getElementById('sideNav').classList.remove('bg-primary');
        document.getElementById('sideNav').classList.add('bg-primary-dark');
     }
