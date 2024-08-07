@@ -109,8 +109,7 @@ function passMode() {
 
 function checkMode() {
     var modeValue = null;
-    var currentMode = document.getElementById('viewToggle').className;
-    var link = this.href; 
+    var link = window.location.href;                            ; 
     alert(link);
 
     //if parameter was passed, get it
