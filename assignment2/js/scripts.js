@@ -64,15 +64,15 @@ function toggleView() {
     //If page already set to 'dark', set that. (Otherwise, keep default) 
     var toggleButton = document.getElementById('viewToggle');
     var toggleClasses = toggleButton.classList;
-    if (Array.from(toggleClasses).filter(word => word == "dark") { 
+    if ( Array.from(toggleClasses).filter(word => word == "dark") ) { 
         toggleValue = "dark";
     }
 
     //If there's a value passed (in URL), use that.   Otherwise keep value as set
     var mode = checkMode();
-    if (mode) { toggleValue = mode; }
+    if ( mode ) { toggleValue = mode; }
 
-    if (toggleValue == "light"){
+    if ( toggleValue == "light" ){
         //if light view, switch to dark //        
         document.body.classList.add('dark');
         document.getElementById('sideNav').classList.add('dark');
