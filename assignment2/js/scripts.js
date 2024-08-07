@@ -59,8 +59,20 @@ function openEmail() {
 }
 
 function toggleView() {
+    var toggleValue = "light";    //view mode default is "light".  
+
+    //If page already set to 'dark', set that. (Otherwise, keep default) 
     var toggleButton = document.getElementById('viewToggle');
-    var toggleValue = toggleButton.className;
+    var toggleClasses = toggleButton.classList;
+    if (Array.from(toggleClasses).filter(word => word == "dark") { 
+        toggleValue = "dark";
+    }
+
+    //If there's a value passed (in URL), use that.   Otherwise keep value as set
+    var mode = checkMode();
+    if (mode) {
+        toggleValue = mode;   
+    }
 
     if (toggleValue == "light"){
         //if light view, switch to dark //        
@@ -82,3 +94,34 @@ function toggleView() {
 
 }
 
+function passMode() {
+    var currentMode = document.getElementById('viewToggle').className;
+    var link = this.href; 
+    alert(link);
+
+    var url = link.split('#')[0];  //if hash exists, get it
+    var section = link.split('#')[1]; 
+
+    alert('link: '+ link + '; url: ' + url + '; section: ' + section);
+
+    var modeLink = url + "?" + currentMode + "#" + section; //add mode to url (keep hash)
+    
+    window.location(modeLink);
+}
+
+function checkMode() {
+    var currentMode = document.getElementById('viewToggle').className;
+    var link = this.href; 
+    alert(link);
+
+    var extras = link.split('?')[1];   //if parameter was passed, get it
+    var mode = extras.split('#')[0];   // if there is a URL hash, get it
+    var modeValue = mode.split('=')[1];   //get the display mode from parameter
+
+    alert('extras: '+ extras + '; mode: ' + mode + '; modeValue: ' + modeValue);
+
+    if (modeValue) {
+        toggleView(modeValue);
+    }
+    
+}
