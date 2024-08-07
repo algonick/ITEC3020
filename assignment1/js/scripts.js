@@ -53,3 +53,13 @@ function openEmail() {
     var emailMessage =  bv
 }
 
+function toggleView() {
+    var toggleValue = document.getElementById('viewToggle').className;
+    if (toggleValue == "light"){
+        alert("light view");
+    } else {
+        alert("dark view");
+    }
+
+}
+
