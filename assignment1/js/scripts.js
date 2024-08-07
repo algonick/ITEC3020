@@ -63,19 +63,23 @@ function toggleView() {
     var toggleValue = toggleButton.className;
 
     if (toggleValue == "light"){
-        alert("light view");
-        document.getElementById('viewName').innerHTML = 'light';
+        //if light view, switch to dark //
+        alert("was light view");
+        document.getElementById('viewName').textContent = 'dark';
+        document.body.style.background = dark_Bodybgcolor;
+        document.body.style.color = dark_Bodytext;
+        document.getElementById('sideNav').classList.remove('bg-primary');
+        document.getElementById('sideNav').classList.add('bg-primary-dark');
+        alert("now dark view");
+    } else {
+        //if dark view, switch to light //
+        alert("was dark view");
+        document.getElementById('viewName').textContent = 'light';
         document.body.style.background = light_Bodybgcolor;
         document.body.style.color = light_Bodytext;
         document.getElementById('sideNav').classList.remove('bg-primary-dark');
         document.getElementById('sideNav').classList.add('bg-primary');
-    } else {
-        alert("dark view");
-        document.getElementById('viewName').innerHTML = 'dark';
-       document.body.style.background = dark_Bodybgcolor;
-       document.body.style.color = dark_Bodytext;
-       document.getElementById('sideNav').classList.remove('bg-primary');
-       document.getElementById('sideNav').classList.add('bg-primary-dark');
+        alert("now light view");
     }
 
 }
