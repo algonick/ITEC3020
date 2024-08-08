@@ -98,12 +98,13 @@ function toggleView(mode) {
 }
 
 function passMode(link) {
+    var currentMode = 'light';   //default
     alert(link);
 
     var url = link.split('#')[0];  //if hash exists, get it
     var section = link.split('#')[1]; 
-
     alert('link: '+ link + '; url: ' + url + '; section: ' + section);
+
     if ( document.getElementById('viewToggle').classList.contains('dark') ){
         currentMode = 'dark';
     }
@@ -115,7 +116,7 @@ function passMode(link) {
 }
 
 function checkMode() {
-    var modeValue = null;
+    var modeValue = 'light';
     var link = window.location.href;                            ; 
     alert(link);
 
