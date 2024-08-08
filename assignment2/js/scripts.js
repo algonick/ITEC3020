@@ -66,6 +66,8 @@ function toggleView(mode) {
     var toggleButton = document.getElementById('viewToggle');
     if ( toggleButton.classList.contains("dark") ) { 
         toggleValue = "dark";
+    } else {
+        toggleValue = "light";
     }
 
     //If there's a value passed (in URL), mode will be set above.   Otherwise keep value as set
