@@ -101,7 +101,8 @@ function passMode(link) {
         currentMode = 'dark';
     }
 
-    var modeLink = url + "?mode=" + currentMode + "#" + section; //add mode to url (keep hash)
+    var modeLink = url + "?mode=" + currentMode; //add mode to url (keep hash)
+    if (section) {modeLink =+ "#" + section;} //not all pages need hash
     
     window.location.href = modeLink;
 }
