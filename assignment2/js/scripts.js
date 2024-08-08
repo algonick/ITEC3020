@@ -7,10 +7,8 @@
 // Scripts
 // 
 
-var light_Bodybgcolor = "#FFF";
-var light_Bodytext = "#6c757d";
-var dark_Bodybgcolor = "#000";
-var dark_Bodytext = "ddd"
+
+var mode = null;
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -36,6 +34,7 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    mode = checkMode();
 
 });
 
@@ -58,7 +57,7 @@ function openEmail() {
     var emailMessage =  bv
 }
 
-function toggleView() {
+function toggleView(mode) {
     var toggleValue = "light";    //view mode default is "light".  
 
     //If page already set to 'dark', set that. (Otherwise, keep default) 
@@ -67,8 +66,7 @@ function toggleView() {
         toggleValue = "dark";
     }
 
-    //If there's a value passed (in URL), use that.   Otherwise keep value as set
-    var mode = checkMode();
+    //If there's a value passed (in URL), mode will be set above.   Otherwise keep value as set
     if ( mode ) { toggleValue = mode; }
 
     if ( toggleValue == "light" ){
