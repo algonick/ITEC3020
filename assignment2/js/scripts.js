@@ -92,13 +92,16 @@ function toggleView() {
 }
 
 function passMode(link) {
-    var currentMode = document.getElementById('viewToggle').className;
+    var currentStyles = document.getElementById('viewToggle').className;
     alert(link);
 
     var url = link.split('#')[0];  //if hash exists, get it
     var section = link.split('#')[1]; 
 
     alert('link: '+ link + '; url: ' + url + '; section: ' + section);
+    if ( currentStyles.contains('dark') ){
+        currentMode = 'dark';
+    }
 
     var modeLink = url + "?mode=" + currentMode + "#" + section; //add mode to url (keep hash)
     
