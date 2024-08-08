@@ -78,7 +78,6 @@ function toggleView(mode) {
         //change toggle button values
         toggleButton.classList.add('dark');
         document.getElementById('viewName').textContent = 'Light';
-
     } else {
         //if dark view, switch to light.  Light is default//        
         document.body.classList.remove('dark');
@@ -86,13 +85,11 @@ function toggleView(mode) {
         //change toggle button values
         toggleButton.classList.remove('dark');
         document.getElementById('viewName').textContent = 'Dark';
-
-    }
-
-    if (window.location.href.indexOf("dark") != -1  ) {
-        var url = window.location.href;  //if hash exists, get it
-    var section = link.split('#')[1]; 
-
+        //clean up URL
+        if (window.location.href.indexOf("dark") != -1  ) {
+            var cleanURL = window.location.href.split('?')[0]
+            if (window.location.hash)  { cleanURL += window.location.hash; } //add any pre-existing hash value 
+        
     }
 
 }
