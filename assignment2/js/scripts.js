@@ -35,7 +35,8 @@ window.addEventListener('DOMContentLoaded', event => {
     // set view mode value (light or dark)
     var toggleValue = "light";    //view mode default is "light".
     var mode = getCookie('mode');
-    toggleView(mode); 
+    if ( mode ) { toggleValue = mode; }  //if there's a cookie value, use it
+    toggleView(toggleValue); 
 
 });
 
