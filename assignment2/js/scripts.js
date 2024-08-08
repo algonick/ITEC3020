@@ -102,7 +102,7 @@ function passMode(link) {
 
     var modeLink = url + "?mode=" + currentMode + "#" + section; //add mode to url (keep hash)
     
-    window.location(modeLink);
+    window.location.href = modeLink;
 }
 
 function checkMode() {
