@@ -122,7 +122,7 @@ function checkMode() {
 
     const parameters= window.location.search;
     const modeParams = new URLSearchParams(parameters);
-    const passedMode = urlParams.get('mode');
+    const passedMode = modeParams.get('mode');
 
     if(passedMode) {modeValue = passedMode;}
 
