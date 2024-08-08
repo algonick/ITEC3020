@@ -76,7 +76,7 @@ function toggleView(mode) {
         document.getElementById('viewName').textContent = 'Dark';
     }
 
-    setCookie('mode', toggleValue, 1);
+    setCookie('mode', mode, 1);
 }
 
 function changeView() {
