@@ -2331,12 +2331,6 @@ textarea.form-control-lg {
   opacity: 0.65;
 }
 
-.btn.toggle {
-  background-color: var(--bs-btn-dark-bg);
-}
-.btn.dark.toggle {
-  background-color: var(--bs-btn-bg);
-}
 
 .form-range {
   width: 100%;
@@ -2817,6 +2811,13 @@ textarea.form-control-lg {
 
 .btn.dark {
  background-color: var(--bs-btn-dark-bg) 
+}
+
+.btn.toggle {
+  background-color: var(--bs-btn-dark-bg);
+}
+.btn.dark.toggle {
+  background-color: var(--bs-btn-bg);
 }
 
 @media (prefers-reduced-motion: reduce) {
