@@ -89,6 +89,12 @@ function toggleView(mode) {
 
     }
 
+    if (window.location.href.indexOf("dark") != -1  ) {
+        var url = window.location.href;  //if hash exists, get it
+    var section = link.split('#')[1]; 
+
+    }
+
 }
 
 function passMode(link) {
@@ -112,6 +118,12 @@ function checkMode() {
     var modeValue = null;
     var link = window.location.href;                            ; 
     alert(link);
+
+    const parameters= window.location.search;
+    const modeParams = new URLSearchParams(parameters);
+    const passedMode = urlParams.get('mode');
+
+    if(passedMode) {modeValue = passedMode;}
 
     //if parameter was passed, get it
     if ( link.indexOf("?") != -1 ) { 
