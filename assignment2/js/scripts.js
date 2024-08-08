@@ -38,10 +38,11 @@ window.addEventListener('DOMContentLoaded', event => {
     var toggleValue = "light";    //view mode default is "light".
     mode = checkMode();
     if (mode == 'dark') {
-        toggleView(mode); setCookie(mode, 'dark', 1);
+        setCookie(mode, 'dark', 1);
     } else {
-        toggleView(mode); setCookie(mode, 'light', 1);
+        setCookie(mode, 'light', 1);
     }
+    toggleView(mode); 
 
 });
 
@@ -95,7 +96,7 @@ function toggleView(mode) {
         if (window.location.href.indexOf("dark") != -1  ) {
             var cleanURL = window.location.href.split('?')[0]
             if (window.location.hash)  { cleanURL += window.location.hash; } //add any pre-existing hash value 
-        
+        }
     }
 
 }
@@ -160,9 +161,9 @@ function setCookie(name, value, days) {
       expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
-  }
+}
   
-  function getCookie(name) {
+function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
     for (var i = 0; i < ca.length; i++) {
@@ -171,4 +172,4 @@ function setCookie(name, value, days) {
       if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
-  }
+}
