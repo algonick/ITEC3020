@@ -9,7 +9,6 @@
 
 
 var mode = null;
-var toggleValue = "light";    //view mode default is "light".  
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -35,6 +34,8 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // set view mode value (light or dark)
+    var toggleValue = "light";    //view mode default is "light".
     mode = checkMode();
     if (mode == 'dark') {toggleView(mode);}
 
