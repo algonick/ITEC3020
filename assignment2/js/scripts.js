@@ -91,9 +91,8 @@ function toggleView() {
 
 }
 
-function passMode() {
+function passMode(link) {
     var currentMode = document.getElementById('viewToggle').className;
-    var link = this.href; 
     alert(link);
 
     var url = link.split('#')[0];  //if hash exists, get it
