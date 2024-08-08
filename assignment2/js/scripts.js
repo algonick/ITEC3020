@@ -68,7 +68,7 @@ function toggleView(mode) {
     }
 
     //If there's a value passed (in URL), mode will be set above.   Otherwise keep value as set
-    if ( mode ) { toggleValue = mode; }
+    if ( mode == 'dark' ) { toggleValue = "light"; } //toggleValue is what to switch FROM (therefore, to stay dark, switch to dark)
 
     if ( toggleValue == "light" ){
         //if light view, switch to dark //        
