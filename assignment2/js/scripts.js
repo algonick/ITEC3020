@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
     mode = checkMode();
+    if (mode == 'dark') {toggleView(mode);}
 
 });
 
