@@ -8,8 +8,6 @@
 // 
 
 
-var mode = null;
-
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element
@@ -36,12 +34,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
     // set view mode value (light or dark)
     var toggleValue = "light";    //view mode default is "light".
-    mode = checkMode();
-    if (mode == 'dark') {
-        setCookie(mode, 'dark', 1);
-    } else {
-        setCookie(mode, 'light', 1);
-    }
+    var mode = getCookie('mode');
     toggleView(mode); 
 
 });
@@ -67,92 +60,40 @@ function openEmail() {
 
 function toggleView(mode) {
 
-    //If page already set to 'dark', set that. (Otherwise, keep default) 
-    var toggleButton = document.getElementById('viewToggle');
-    if ( toggleButton.classList.contains("dark") ) { 
-        toggleValue = "dark";
-    } else {
-        toggleValue = "light";
-    }
-
-    //If there's a value passed (in URL), mode will be set above.   Otherwise keep value as set
-    if ( mode == 'dark' ) { toggleValue = "light"; } //toggleValue is what to switch FROM (therefore, to stay dark, switch to dark)
-
-    if ( toggleValue == "light" ){
-        //if light view, switch to dark //        
+    if ( toggleValue == "dark" ){   
         document.body.classList.add('dark');
         document.getElementById('sideNav').classList.add('dark');
         //change toggle button values
         toggleButton.classList.add('dark');
         document.getElementById('viewName').textContent = 'Light';
     } else {
-        //if dark view, switch to light.  Light is default//        
+        //Light is default//        
         document.body.classList.remove('dark');
         document.getElementById('sideNav').classList.remove('dark');
         //change toggle button values
         toggleButton.classList.remove('dark');
         document.getElementById('viewName').textContent = 'Dark';
-        //clean up URL
-        if (window.location.href.indexOf("dark") != -1  ) {
-            var cleanURL = window.location.href.split('?')[0]
-            if (window.location.hash)  { cleanURL += window.location.hash; } //add any pre-existing hash value 
-        }
     }
 
+    setCookie('mode', toggleValue, 1);
 }
 
-function passMode(link) {
-    var currentMode = 'light';   //default
-    alert(link);
+function changeView() {
+    // if in Light mode (no  class=dark for button), switch to Dark 
+    // if in Dark  mode (has class=dark for button), switch to Light
 
-    var url = link.split('#')[0];  //if hash exists, get it
-    var section = link.split('#')[1]; 
-    alert('link: '+ link + '; url: ' + url + '; section: ' + section);
+    var toggleButton = document.getElementById('viewToggle');
 
-    if ( document.getElementById('viewToggle').classList.contains('dark') ){
-        currentMode = 'dark';
-    }
-
-    var modeLink = url + "?mode=" + currentMode; //add mode to url (keep hash)
-    if (section) {modeLink =+ "#" + section;} //not all pages need hash
-    
-    window.location.href = modeLink;
-}
-
-function checkMode() {
-    var modeValue = 'light';
-    var link = window.location.href;                            ; 
-    alert(link);
-
-    const parameters= window.location.search;
-    const modeParams = new URLSearchParams(parameters);
-    const passedMode = modeParams.get('mode');
-
-    if(passedMode) {modeValue = passedMode;}
-
-    //if parameter was passed, get it
-    if ( link.indexOf("?") != -1 ) { 
-        var extras = link.split('?')[1]; 
-    }  
-    // if there is a URL hash, get it
-    if ( extras && extras.indexOf("#") != -1 ) {
-        var mode = extras.split('#')[0];   
-    } 
-    //get the display mode from parameter
-    if ( mode && mode.indexOf("=") != -1 ) {
-        modeValue = mode.split('=')[1];   
+    if ( toggleButton.classList.contains("dark") ) { 
+        toggleValue = "light";
     } else {
-        if (extras && extras.indexOf("=") != -1 ) {
-            modeValue = extras.split("=")[1];
-        }
+        toggleValue = "dark"
     }
 
-    alert('extras: ' + extras +  '; modeValue: ' + modeValue);
-
-   return modeValue;
-
-    
+    toggleView(toggleValue);
 }
+
+
 function setCookie(name, value, days) {
     var expires = "";
     if (days) {
