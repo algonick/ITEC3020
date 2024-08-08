@@ -2829,10 +2829,10 @@ textarea.form-control-lg {
  }
 
 .btn.toggle {
-  background-color: var(--bs-primary-dark-rgb);
+  background-color: var(--bs-btn-dark-bg);
 }
 .btn.dark.toggle {
-  background-color: var(--bs-primary-rgb);
+  background-color: var(--bs-btn-bg);
 }
 
 @media (prefers-reduced-motion: reduce) {

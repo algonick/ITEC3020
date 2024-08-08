@@ -2810,7 +2810,7 @@ textarea.form-control-lg {
 }
 
 .btn.dark {
- background-color: var(--bs-btn-dark-bg) 
+ background-color: var(--bs-btn-dark-bg);
 }
 
 .btn.toggle {
