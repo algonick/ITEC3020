@@ -2825,7 +2825,8 @@ textarea.form-control-lg {
 }
 
 .btn.dark {
-  background-color: var(--bs-btn-dark-bg) 
+  background-color: var(--bs-btn-dark-bg);
+  color: var(--bs-btn-dark-color);
  }
 
 .btn.toggle {
