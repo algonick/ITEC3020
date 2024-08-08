@@ -61,7 +61,7 @@ function openEmail() {
 
 function toggleView(mode) {
 
-    if ( toggleValue == "dark" ){   
+    if ( mode == "dark" ){   
         document.body.classList.add('dark');
         document.getElementById('sideNav').classList.add('dark');
         //change toggle button values
