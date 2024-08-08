@@ -65,14 +65,14 @@ function toggleView(mode) {
         document.body.classList.add('dark');
         document.getElementById('sideNav').classList.add('dark');
         //change toggle button values
-        toggleButton.classList.add('dark');
+        document.getElementById('viewToggle').classList.add('dark');
         document.getElementById('viewName').textContent = 'Light';
     } else {
         //Light is default//        
         document.body.classList.remove('dark');
         document.getElementById('sideNav').classList.remove('dark');
         //change toggle button values
-        toggleButton.classList.remove('dark');
+        document.getElementById('viewToggle').classList.remove('dark');
         document.getElementById('viewName').textContent = 'Dark';
     }
 
