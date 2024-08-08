@@ -9,6 +9,7 @@
 
 
 var mode = null;
+var toggleValue = "light";    //view mode default is "light".  
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -59,7 +60,6 @@ function openEmail() {
 }
 
 function toggleView(mode) {
-    var toggleValue = "light";    //view mode default is "light".  
 
     //If page already set to 'dark', set that. (Otherwise, keep default) 
     var toggleButton = document.getElementById('viewToggle');
@@ -129,7 +129,7 @@ function checkMode() {
         }
     }
 
-    alert('extras: '+ extras + '; mode: ' + mode + '; modeValue: ' + modeValue);
+    alert('extras: ' + extras +  '; modeValue: ' + modeValue);
 
    return modeValue;
 
