@@ -126,11 +126,11 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(posts => {
         posts.forEach(post => {
-            //const postElement = document.createElement('div');
+            const postElement = document.createElement('div');
             renderPost(post);
             // manipulate postElement to show the content of the blog post with the specific style defined for it
             if (postNum < 1) {
-                spotlight.appendChild(postElement); 
+                spotlight.appendChild(); 
                 postNum++;
             } else {
                 moreBlogs.appendChild(postElement);
