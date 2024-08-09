@@ -121,21 +121,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const spotlight = document.getElementById('spotlight');
     const moreBlogs = document.getElementById('moreBlogs');
     var postNum = 0;
+    var postCount = 1;
 
     fetch('js/posts.json')
     .then(response => response.json())
     .then(posts => {
         posts.forEach(post => {
-            renderPost(post);
+            const postElement = document.createElement('div');
+            
             // manipulate postElement to show the content of the blog post with the specific style defined for it
 
             //blogList.appendChild(postElement);
+            // spotlight goes first
+            if (postNum < 1) {
+                renderPost(post);
+                spotlight.appendChild(postElement); 
+                postNum++;
+            }   
+            // for rest of posts, want only 2 items per row
+            if (postCount >= 2) {
+                moreBlogs.appendChild(postElement);  //once you have 2, write them
+                postCount = 0; //reset counter
+            } else {
+                renderMorePosts(post); //less than 2, keep building HTML
+                postCount++; //increment counter
+            }
+
         });
     })
     .catch(error =>  console.error('Error loading blog posts:', error));
   
     renderPost = (post) => {
-        const postElement = document.createElement('div');
         postElement.innerHTML = `
             <div class= "card mb-4"><a href="#!"><img class="card-img-top" src=${post.img} alt=${post.headline}/></a>
                 <div class="card-body">
@@ -148,14 +164,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                 </div>
             </div>`;   
-        
-        if (postNum < 1) {
-            spotlight.appendChild(postElement); 
-            postNum++;
-        } else {
-            postElement.innerHTML = `<div  class="col-lg-6">` + postElement.innerHTML + `</div>`;
-            moreBlogs.appendChild(postElement);
-        }
-    }        
+    }    
+    renderMorePosts = (post) => {
+        postElement.innerHTML += `<div class="col-lg-6">`;
+        postElement.innerHTML += renderPost(post);
+        postElement.innerHTML += `</div>`;
+    }   
         
 });
