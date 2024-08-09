@@ -1,31 +1,22 @@
 [{ 
-    "id" : 4,
+    "id" : 3,
     "date" : "August 8, 2024",
     "img" : "replace-programmers2.jpg",
     "headline" : "JSON-powered blog",
     "teaser" : "How I changed the regular blog posts to use JSON data.",
     "body" : "<p>I had already implemented a basic blog on the site.  Now I changed it to use JSON for the blog articles</p><p>The original blog had a same-page format, where the headline and the body were on the same page, using expand/collapse for the 'Read More' function.  I wanted to keep that.</p><p>The requirement was to keep the blog contents in a JSON file and use it to build the page (rather than hard-code the articles).  I already knew what the format I wanted was, so I created a JSON file with data for the various parts, including the 'teaser' that displays above the 'Read More' and the image that displays</p><p>I used the pre-existing blog entry to test the format, before adding more entries.</p><p>Using the code provided by the Assignment requirements, I completed it to build the HTML that would create a blog post.</p>"
 },{ 
-    "id" : 3,
+    "id" : 2,
     "date" : "August 8, 2024",
     "img" : "replace-programmers2.jpg",
     "headline" : "Light-to-Dark Mode ",
     "teaser" : "How I implemented a light-to-dark view toggle on this site.",
     "body" : "<p>In my opinion, the simplest, most maintainable way to implement a view-mode toggle is to make use of additional styles and classes.  After all, it is a display-layer feature.</p><p>Consequently, I created an additional class, called 'dark', that could be added to existing CSS selectors to create a unique combination of darker colours.</p><p>The 'light' site uses oranges, white and greys, so I kept the dark colours similar, with a burnt brown, black and kept the greys and orange where it made sense.</p><p>The most challenging part was how to keep the mode as the visitor moved from page to page.  First, I tried URL-encoding the mode (with ?mode=dark in URL), but this became too convoluted as the URLs also had hashes for the main resume part.  So I chose to use a cookie to hold the current-mode.  As each new page loads, it checks the cookie for the colour mode.  'Light' is the default if there is no cookie yet.  If you hit the toggle on any of the pages, then it will change the view and update the cookie.</p><p>This provides consistency as you move from page, with the simplest amount of code.</p>"
-},
-{ 
-    "id" : 2,
+},{ 
+    "id" : 1,
     "date" : "July 4, 2024",
     "img" : "replace-programmers2.jpg",
     "headline" : "Will my degree be obsolete?",
     "teaser" : "LLM's like ChatGPT can write better, cleaner code faster than a human. Will programmers be obsolete within the next year or two?",
     "body" : "<p>The rapid advancement of AI in recent years has sparked concerns among IT professionals, particularly those with degrees in Information Technology, about the future relevance of their expertise. AI-powered tools and platforms have become increasingly sophisticated, capable of automating tasks that were once the exclusive domain of human programmers. This has led some to worry that their hard-earned degrees may become obsolete as AI continues to encroach upon the traditional roles and responsibilities of IT professionals.</p><p>Moreover, the development of AI models with the ability to generate code and troubleshoot software issues has raised questions about the long-term viability of programming as a profession. As AI becomes more adept at handling complex coding tasks, the demand for human programmers may dwindle, potentially leaving IT graduates with limited career prospects. The growing prevalence of AI-driven automation across various industries further exacerbates these concerns,as it may result in a reduced need for IT professionals to maintain and manage software systems.</p><p>However, it is important to note that while AI may significantly impact the IT landscape, it is unlikely to render IT degrees completely useless. Instead, it may necessitate a shift in focus for IT professionals, requiring them to develop new skills and expertise that complement AI capabilities. For example, IT graduates may need to specialize in areas such as AI ethics, data privacy, or cybersecurity, which are becoming increasingly important as AI becomes more integrated into society. Additionally, the ability to collaborate effectively with AI systems and leverage their strengths to enhance productivity will likely become a valuable asset for IT professionals in the future.</p>"
-},
-{ 
-    "id" : 1,
-    "date" : "April 1, 2024",
-    "img" : "",
-    "headline" : "April Fool's Day",
-    "teaser" : "It's that annoying day again",
-    "body" : "Every year, people think they're being witty, when they're actually being annoying."
 }]
