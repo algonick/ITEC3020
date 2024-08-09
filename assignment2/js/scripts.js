@@ -115,3 +115,48 @@ function getCookie(name) {
     }
     return null;
 }
+// ****************************************** BLOG code. From course assignment ****************************** //
+document.addEventListener('DOMContentLoaded', function() {
+    const blogList = document.getElementById('blog-list');
+    const spotlight = document.getElementById('spotlight');
+    const moreBlogs = document.getElementById('moreBlogs');
+    var postNum = 0;
+
+    fetch('posts.json')
+    .then(response => response.json())
+    .then(posts => {
+        posts.forEach(post => {
+            //const postElement = document.createElement('div');
+            renderPost(post);
+            // manipulate postElement to show the content of the blog post with the specific style defined for it
+            if (postNum < 1) {
+                spotlight.appendChild(postElement); 
+            } else {
+                moreBlogs.appendChild(postElement);
+            }
+            //blogList.appendChild(postElement);
+        });
+
+        renderPost = (post) => {
+            postElement.innerHTML = `
+                <div class="user">
+                <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" src= ${post.img} alt=${post.headline}/></a>
+                        <div class="card-body">
+                            <div class="small text-muted">${post.date}</div>
+                            <h2 class="card-title">${post.headline}</h2>
+                            <p class="card-text">${post.teaser}</p>
+                            <a id=more-${post.id} class="btn btn-primary" onclick=showBlog(${post.id})  href="#">Read more →</a>
+                            <div id="${post.id}" class="article-body" style="display: none;">
+                                <p id="article-start"></p>
+                                ${post.body}
+                            </div>
+                        </div>
+                    </div>
+                ';    
+        }
+   
+    })
+    
+    .catch(error => console.error('Error loading blog posts:', error));
+});
