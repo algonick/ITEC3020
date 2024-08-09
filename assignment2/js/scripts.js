@@ -136,9 +136,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 moreBlogs.appendChild(postElement);
             }
             //blogList.appendChild(postElement);
-        })
-    
-    .catch(error => { console.error('Error loading blog posts:', error) });
+        });
+    })
+    .catch(error =>  console.error('Error loading blog posts:', error));
   
     renderPost = (post) => {
         postElement.innerHTML = "<div class= 'card mb-4 '><a href= '#! '><img class= 'card-img-top ' src=${post.img} alt=${post.headline}/></a><div class= 'card-body '><div class= 'small text-muted '>${post.date}</div><h2 class= 'card-title '>${post.headline}</h2><p class= 'card-text '>${post.teaser}</p><a id=more-${post.id} class= 'btn btn-primary ' onclick=showBlog(${post.id})  href= '# '>Read more →</a><div id= '${post.id} ' class= 'article-body ' style= 'display: none; '><p id= 'article-start '></p>${post.body}</div></div></div>";    
