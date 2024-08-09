@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const moreBlogs = document.getElementById('moreBlogs');
     var postNum = 0;
 
-    fetch('posts.json')
+    fetch('js/posts.json')
     .then(response => response.json())
     .then(posts => {
         posts.forEach(post => {
