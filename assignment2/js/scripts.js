@@ -46,7 +46,7 @@ function showBlog(article){
     if ( document.getElementById(article).style.display == 'none' ) {
         document.getElementById(article).style.display='block'; //Show desired form
         document.getElementById(articleToggle).innerHTML='Close x';
-        document.getElementById('article-start').focus();
+        document.getElementById(article+'-start').focus();
     }else {
     // if article is open, close it
         document.getElementById(article).style.display='none'; //Show desired form
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class= 'card-text '>${post.teaser}</p>
                     <a id=more-${post.id} class= 'btn btn-primary ' onclick=showBlog(${post.id})  href= '# '>Read more →</a>
                         <div id= '${post.id} ' class= 'article-body ' style= 'display: none; '>
-                            <p id= 'article-start '></p>${post.body}
+                            <p id= '${post.id}-start '></p>${post.body}
                         </div>
                 </div>
             </div>`;   
