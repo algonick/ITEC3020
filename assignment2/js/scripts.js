@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="small text-muted">${post.date}</div>
                     <h2 class="card-title">${post.headline}</h2>
                     <p class="card-text">${post.teaser}</p>
-                    <a id=more-${post.id} class="btn btn-primary" onclick="showBlog(${post.id})"  href="#">Read more →</a>
+                    <button id=more-${post.id} class="btn btn-primary" onclick="showBlog(${post.id})">Read more →</button>
                         <div id="${post.id}" class="article-body" style="display: none;">
                             <p id="${post.id}-start"></p>${post.body}
                         </div>
