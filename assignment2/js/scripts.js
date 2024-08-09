@@ -127,20 +127,19 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(posts => {
         posts.forEach(post => {
-            const postElement = document.createElement('div');
-            
             // manipulate postElement to show the content of the blog post with the specific style defined for it
 
             //blogList.appendChild(postElement);
             // spotlight goes first
             if (postNum < 1) {
+                const postElement = document.createElement('div');
                 renderPost(post);
                 spotlight.appendChild(postElement); 
                 postNum++;
             }   
             // for rest of posts, want only 2 items per row
             if (postCount >= 2) {
-                moreBlogs.appendChild(postElement);  //once you have 2, write them
+                moreBlogs.appendChild(postRow);  //once you have 2, write them
                 postCount = 0; //reset counter
             } else {
                 renderMorePosts(post); //less than 2, keep building HTML
@@ -166,9 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>`;   
     }    
     renderMorePosts = (post) => {
-        postElement.innerHTML += `<div class="col-lg-6">`;
-        postElement.innerHTML += renderPost(post);
-        postElement.innerHTML += `</div>`;
+        const postRow = document.createElement('div class="col-lg-6"');
+        postRow.innerHTML = renderPost(post);
     }   
         
 });
