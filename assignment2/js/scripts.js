@@ -153,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             spotlight.appendChild(postElement); 
             postNum++;
         } else {
+            postElement.innerHTML = `<div  class="col-lg-6">` + postElement.innerHTML + `</div>`;
             moreBlogs.appendChild(postElement);
         }
     }        
