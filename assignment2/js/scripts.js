@@ -132,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
             //blogList.appendChild(postElement);
             // spotlight goes first
             if (postNum < 1) {
-                const postElement = document.createElement('div');
                 renderPost(post);
                 spotlight.appendChild(postElement); 
                 postNum++;
@@ -151,6 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error =>  console.error('Error loading blog posts:', error));
   
     renderPost = (post) => {
+        const postElement = document.createElement('div');
+        
         postElement.innerHTML = `
             <div class= "card mb-4"><a href="#!"><img class="card-img-top" src=${post.img} alt=${post.headline}/></a>
                 <div class="card-body">
