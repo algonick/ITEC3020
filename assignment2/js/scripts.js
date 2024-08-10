@@ -130,12 +130,14 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(posts => {
         posts.forEach(post => {
             // manipulate postElement to show the content of the blog post with the specific style defined for it
-
+            const postElement = document.createElement('div');  // actual blog item
             // spotlight goes first
             if (postNum < 1) {
                 renderPost(post);
+                postElement.innerHTML = rowHTML;
                 spotlight.appendChild(postElement); 
                 postNum++;
+                rowHTML = "";
                 newRow = true;  //set row counter to begin pairs of "more" blogs
             }   
             // for rest of posts, want only 2 items per row
@@ -158,9 +160,8 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error =>  console.error('Error loading blog posts:', error));
   
-    renderPost = (post) => {
-        const postElement = document.createElement('div');  // actual blog item
-        postElement.innerHTML = `
+    renderPost = (post) => {       
+        rowHTML = `
             <div class= "card mb-4"><a href="#!"><img class="card-img-top" src=${post.img} alt=${post.headline}/></a>
                 <div class="card-body">
                     <div class="small text-muted">${post.date}</div>
