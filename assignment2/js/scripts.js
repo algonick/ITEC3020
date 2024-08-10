@@ -121,8 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const spotlight = document.getElementById('spotlight');
     const moreBlogs = document.getElementById('moreBlogs');
 
-    const postElement = document.createElement('div');
-    const postRow = document.createElement('div');
+    const postElement = document.createElement('div');  // actual blog item
+    const postRow = document.createElement('div');  // row for 2 blog items
 
     var postNum = 0;
     var postCount = 1;
@@ -169,7 +169,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }    
     renderMorePosts = (post) => {
         postRow.classList.add('col-lg-6');
-        postRow.innerHTML = renderPost(post);
+        var postContent = renderPost(post);
+        postRow.innerHTML = postContent;
     }   
         
 });
