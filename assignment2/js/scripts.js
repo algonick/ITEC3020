@@ -143,11 +143,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }else {
                 // for rest of posts, want only 2 items per row
                 rowHTML += blogHTML; //add the post to existing HTML holder
+                postElement.classList.add('col-lg-6');  // "more posts" needs this class
                 if (newRow === true) {   //if first item (post already added above)
                     newRow = false;  // set newRow as false for next post
-                }else {
+                }else {                    
                     const postRow = document.createElement('div');  // create blog row
-                    postRow.classList.add('col-lg-6');   // give div the row container class
+                    postRow.classList.add('row');   // give div the row container class
                     postRow.innerHTML = rowHTML;   // move the HTML into the row div element
                     moreBlogs.appendChild(postRow);  //once you have 2, write the blog row
 
