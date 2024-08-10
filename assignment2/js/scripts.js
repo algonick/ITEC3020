@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         posts.forEach(post => {
             // manipulate postElement to show the content of the blog post with the specific style defined for it
             const postElement = document.createElement('div');  // actual blog item
+            var blogHTML = "";   //clear out blogHTML each time through
             renderPost(post);
 
             // spotlight goes first
@@ -159,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error =>  console.error('Error loading blog posts:', error));
   
     renderPost = (post) => {       
-        var blogHTML = "";   //clear out blogHTML each time through
         blogHTML = `
             <div class= "card mb-4"><a href="#!"><img class="card-img-top" src=${post.img} alt=${post.headline}/></a>
                 <div class="card-body">
