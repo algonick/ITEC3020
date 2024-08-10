@@ -121,8 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const spotlight = document.getElementById('spotlight');
     const moreBlogs = document.getElementById('moreBlogs');
 
-    const postElement = document.createElement('div');  // actual blog item
-    const postRow = document.createElement('div');  // row for 2 blog items
+    var newRow = false;
+    
 
     var postNum = 0;
     var postCount = 1;
@@ -132,23 +132,28 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(posts => {
         posts.forEach(post => {
             // manipulate postElement to show the content of the blog post with the specific style defined for it
-
+            
             //blogList.appendChild(postElement);
             // spotlight goes first
             if (postNum < 1) {
+                const postElement = document.createElement('div');  // actual blog item
                 renderPost(post);
                 spotlight.appendChild(postElement); 
                 postNum++;
+                newRow = true;  //set row counter to begin pairs of "more" blogs
             }   
             // for rest of posts, want only 2 items per row
-            if (postCount >= 2) {
-                moreBlogs.appendChild(postRow);  //once you have 2, write them
-                postCount = 0; //reset counter
-            } else {
-                renderMorePosts(post); //less than 2, keep building HTML
-                postCount++; //increment counter
-            }
-
+            if (newRow === true) {   //if first item:  
+                const postElement = document.createElement('div');  // actual blog item
+                postElement.classList.add('col-lg-6');   // make div the row container
+                renderPost(post); //add the post
+                newRow = false;  // set newRow as false for next post
+            }    
+            if (newRow === false) {
+                postElement.innerHTML += renderPost(post); //add the post to existing innerHTML
+                moreBlogs.appendChild(postElement);  //once you have 2, write the blog row
+                newRow = true;//reset flag for next pair
+            } 
         });
     })
     .catch(error =>  console.error('Error loading blog posts:', error));
