@@ -120,6 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const blogList = document.getElementById('blog-list');
     const spotlight = document.getElementById('spotlight');
     const moreBlogs = document.getElementById('moreBlogs');
+
+    const postElement = document.createElement('div');
+    const postRow = document.createElement('div class="col-lg-6"');
+
     var postNum = 0;
     var postCount = 1;
 
@@ -150,8 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error =>  console.error('Error loading blog posts:', error));
   
     renderPost = (post) => {
-        const postElement = document.createElement('div');
-        
         postElement.innerHTML = `
             <div class= "card mb-4"><a href="#!"><img class="card-img-top" src=${post.img} alt=${post.headline}/></a>
                 <div class="card-body">
@@ -166,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>`;   
     }    
     renderMorePosts = (post) => {
-        const postRow = document.createElement('div class="col-lg-6"');
         postRow.innerHTML = renderPost(post);
     }   
         
