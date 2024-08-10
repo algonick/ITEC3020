@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const moreBlogs = document.getElementById('moreBlogs');
 
     const postElement = document.createElement('div');
-    const postRow = document.createElement('div class="col-lg-6"');
+    const postRow = document.createElement('div');
 
     var postNum = 0;
     var postCount = 1;
@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>`;   
     }    
     renderMorePosts = (post) => {
+        postRow.classList.add('col-lg-6');
         postRow.innerHTML = renderPost(post);
     }   
         
