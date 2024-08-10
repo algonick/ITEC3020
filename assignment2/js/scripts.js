@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const moreBlogs = document.getElementById('moreBlogs');
 
     var newRow = false;
+    var rowHTML = "";
     
 
     var postNum = 0;
@@ -132,11 +133,10 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(posts => {
         posts.forEach(post => {
             // manipulate postElement to show the content of the blog post with the specific style defined for it
-            
+            const postElement = document.createElement('div');  // actual blog item
             //blogList.appendChild(postElement);
             // spotlight goes first
             if (postNum < 1) {
-                const postElement = document.createElement('div');  // actual blog item
                 renderPost(post);
                 spotlight.appendChild(postElement); 
                 postNum++;
@@ -144,15 +144,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }   
             // for rest of posts, want only 2 items per row
             if (newRow === true) {   //if first item:  
-                const postElement = document.createElement('div');  // actual blog item
-                postElement.classList.add('col-lg-6');   // make div the row container
-                renderPost(post); //add the post
+                rowHTML += renderPost(post); //add the post to existing HTML holder
                 newRow = false;  // set newRow as false for next post
             }    
             if (newRow === false) {
-                postElement.innerHTML += renderPost(post); //add the post to existing innerHTML
-                moreBlogs.appendChild(postElement);  //once you have 2, write the blog row
+                rowHTML += renderPost(post); //add the post to existing HTML holder
+
+                const postRow = document.createElement('div');  // create blog row
+                postRow.classList.add('col-lg-6');   // give div the row container class
+                postRow.innerHTML = rowHTML;   // move the HTML into the row div element
+                moreBlogs.appendChild(postRow);  //once you have 2, write the blog row
+
                 newRow = true;//reset flag for next pair
+                rowHTML = ""; //clear out HTML holder for next pair
             } 
         });
     })
