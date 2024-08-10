@@ -141,20 +141,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 postNum++;
                 newRow = true;  //set row counter to begin pairs of "more" blogs
             }else {
-                // for rest of posts, want only 2 items per row
-                rowHTML += blogHTML; //add the post to existing HTML holder
-                if (newRow === true) {   //if first item (post already added above)
+                // for rest of posts (more-blogs), want only 2 items per row
+                // to be side-by-side, more-blogs need an additional wrapping container 
+                const postContainer = document.createElement('div');  //create blog container
+                postContainer.innerHTML += blogHTML;   // move the blog HTML into the container div element
+                postContainer.classList.add('col-lg-6');  // more-blogs container needs this class
+                if (newRow === true) {   //if first item (post already added above) go to next post
                     newRow = false;  // set newRow as false for next post
-                }else {                    
-                    const postRow = document.createElement('div');  // create blog row
+                }else {       //if second item (post already added above) write out row             
+                    const postRow = document.createElement('div');  // create blog row element
                     postRow.classList.add('row');   // give div the row container class
-                    
-                    const postContainer = document.createElement('div');  // create blog container
-                    postContainer.innerHTML += rowHTML;   // move the HTML into the row div element
-                    postContainer.classList.add('col-lg-6');  // "more posts" needs this class
-
                     postRow.appendChild(postContainer);
-                    moreBlogs.appendChild(postRow);  //once you have 2, write the blog row
+                    moreBlogs.appendChild(postRow);  //write the blog row
 
                     newRow = true;//reset flag for next pair
                     rowHTML = ""; //clear out HTML holder for next pair 
