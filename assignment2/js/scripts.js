@@ -141,17 +141,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 spotlight.appendChild(postElement); 
                 newRow = true;  //set row counter to begin pairs of "more" blogs
             }else {
-                // for rest of posts (more-blogs), want only 2 items per row
+            // for rest of posts (more-blogs), want only 2 items per row
                 // to be side-by-side, more-blogs need an additional wrapping container 
                 const postContainer = document.createElement('div');  //create blog container
                 postContainer.innerHTML += blogHTML;   // move the blog HTML into the container div element
                 postContainer.classList.add('col-lg-6');  // more-blogs container needs this class
-                rowElement.appendChild(postContainer);  //add blog to row container
 
                 if (newRow === true) {   //if first item (post already added above) go to next post
-                    rowElement.innerHTML = ""; //clear out row container for next pair row
+                    rowElement.innerHTML = ""; //clear out rowElement from any previous pair content
+                    rowElement.appendChild(postContainer);  //add first blog to row container
+
                     newRow = false;  // set newRow as false for next post
-                }else {       //if second item (post already added above) write out row             
+
+                }else {       //if second item (post already added above) write out row         
+                    rowElement.appendChild(postContainer);  //add second blog to row container    
+                    
+                    //put pair of blog posts in one row
                     const postRow = document.createElement('div');  // create blog row element
                     postRow.classList.add('row');   // give div the row container class
                     postRow.appendChild(rowElement);   // set the innerHTML to the whole HTML of both containers
