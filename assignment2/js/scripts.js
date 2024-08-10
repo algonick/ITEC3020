@@ -176,10 +176,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>`;   
     }    
-    renderMorePosts = (post) => {
-        postRow.classList.add('col-lg-6');
-        var postContent = renderPost(post);
-        postRow.innerHTML = postContent;
-    }   
         
 });
