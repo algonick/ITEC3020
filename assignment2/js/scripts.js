@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var newRow = false;
     var postNum = 0;
 
-    const rowElement = document.createElement('div');
+    const postRow = document.createElement('div');  // create blog row element
 
     fetch('js/posts.json')
     .then(response => response.json())
@@ -147,19 +147,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 postContainer.classList.add('col-lg-6');  // more-blogs container needs this class
                 postContainer.appendChild(postElement);  //add the blog HTML to the more-blogs container
 
-                if (newRow === true) {   //if first item (post already added above) go to next post
-                    rowElement.innerHTML = ""; //clear out rowElement from any previous pair content
-                    rowElement.appendChild(postContainer);  //add first blog to row container
+                if (newRow === true) {   
+                    //if first item (post already added above) add to row container and go to next post
+                    postRow.innerHTML = ""; //clear out rowElement from any previous pair content
+                    postRow.appendChild(postContainer);  //add first blog to row container
 
                     newRow = false;  // set newRow as false for next post
 
-                }else {       //if second item (post already added above) write out row         
-                    rowElement.appendChild(postContainer);  //add second blog to row container    
-                    
-                    //put pair of blog posts in one row
-                    const postRow = document.createElement('div');  // create blog row element
+                }else {       
+                    //if second item (post already added above) add to row container write out row         
+                    postRow.appendChild(postContainer);  //add second blog to row container    
                     postRow.classList.add('row');   // give div the row container class
-                    postRow.appendChild(rowElement);   // set the innerHTML to the whole HTML of both containers
+
+                    //postRow.appendChild(rowElement);   // set the innerHTML to the whole HTML of both containers
                     moreBlogs.appendChild(postRow);  //write the blog row
 
                     newRow = true;//reset flag for next pair
