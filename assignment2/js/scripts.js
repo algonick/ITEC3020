@@ -139,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (postNum < 1) {
                 postElement.innerHTML = blogHTML;
                 spotlight.appendChild(postElement); 
-                postNum++;
                 newRow = true;  //set row counter to begin pairs of "more" blogs
             }else {
                 // for rest of posts (more-blogs), want only 2 items per row
@@ -161,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     newRow = true;//reset flag for next pair
                 }   
             } 
+            postNum++;
         });
     })
     .catch(error =>  console.error('Error loading blog posts:', error));
