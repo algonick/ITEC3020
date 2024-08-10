@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 rowElement.appendChild(postContainer);  //add blog to row container
 
                 if (newRow === true) {   //if first item (post already added above) go to next post
+                    rowElement.innerHTML = ""; //clear out row container for next pair row
                     newRow = false;  // set newRow as false for next post
                 }else {       //if second item (post already added above) write out row             
                     const postRow = document.createElement('div');  // create blog row element
@@ -158,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     moreBlogs.appendChild(postRow);  //write the blog row
 
                     newRow = true;//reset flag for next pair
-                    rowElement.innerHTML = ""; //clear out row container for next pair row
                 }   
             } 
         });
