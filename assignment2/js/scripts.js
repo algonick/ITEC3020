@@ -131,10 +131,11 @@ document.addEventListener('DOMContentLoaded', function() {
         posts.forEach(post => {
             // manipulate postElement to show the content of the blog post with the specific style defined for it
             const postElement = document.createElement('div');  // actual blog item
+            renderPost(post);
+
             // spotlight goes first
             if (postNum < 1) {
-                renderPost(post);
-                postElement.innerHTML = rowHTML;
+                postElement.innerHTML = blogHTML;
                 spotlight.appendChild(postElement); 
                 postNum++;
                 rowHTML = "";
@@ -142,11 +143,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }   
             // for rest of posts, want only 2 items per row
             if (newRow === true) {   //if first item:  
-                rowHTML += renderPost(post); //add the post to existing HTML holder
+                rowHTML += blogHTML;//add the post to existing HTML holder
                 newRow = false;  // set newRow as false for next post
             }    
             if (newRow === false) {
-                rowHTML += renderPost(post); //add the post to existing HTML holder
+                rowHTML += blogHTML; //add the post to existing HTML holder
 
                 const postRow = document.createElement('div');  // create blog row
                 postRow.classList.add('col-lg-6');   // give div the row container class
@@ -161,7 +162,8 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error =>  console.error('Error loading blog posts:', error));
   
     renderPost = (post) => {       
-        rowHTML = `
+        var blogHTML = "";   //clear out blogHTML each time through
+        blogHTML = `
             <div class= "card mb-4"><a href="#!"><img class="card-img-top" src=${post.img} alt=${post.headline}/></a>
                 <div class="card-body">
                     <div class="small text-muted">${post.date}</div>
