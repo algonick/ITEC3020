@@ -134,18 +134,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const postElement = document.createElement('div');  // actual blog item
             var blogHTML = "";   //clear out blogHTML each time through
             blogHTML = renderPost(post);
+            postElement.innerHTML += blogHTML;// add the blog HTML
 
             // spotlight goes first
             if (postNum < 1) {
-                postElement.innerHTML = blogHTML;
-                spotlight.appendChild(postElement); 
+                spotlight.appendChild(postElement); // move the blog HTML into its div element for display
                 newRow = true;  //set row counter to begin pairs of "more" blogs
             }else {
             // for rest of posts (more-blogs), want only 2 items per row
                 // to be side-by-side, more-blogs need an additional wrapping container 
-                const postContainer = document.createElement('div');  //create blog container
-                postContainer.innerHTML += blogHTML;   // move the blog HTML into the container div element
+                const postContainer = document.createElement('div');  //create more-blogs container wrapper
                 postContainer.classList.add('col-lg-6');  // more-blogs container needs this class
+                postContainer.appendChild(postElement);  //add the blog HTML to the more-blogs container
 
                 if (newRow === true) {   //if first item (post already added above) go to next post
                     rowElement.innerHTML = ""; //clear out rowElement from any previous pair content
