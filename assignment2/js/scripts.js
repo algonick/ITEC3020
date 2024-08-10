@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // manipulate postElement to show the content of the blog post with the specific style defined for it
             const postElement = document.createElement('div');  // actual blog item
             var blogHTML = "";   //clear out blogHTML each time through
-            renderPost(post);
+            blogHTML = renderPost(post);
 
             // spotlight goes first
             if (postNum < 1) {
