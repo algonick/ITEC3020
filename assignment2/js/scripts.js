@@ -123,18 +123,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var newRow = false;
     var rowHTML = "";
-    
-
     var postNum = 0;
-    var postCount = 1;
 
     fetch('js/posts.json')
     .then(response => response.json())
     .then(posts => {
         posts.forEach(post => {
             // manipulate postElement to show the content of the blog post with the specific style defined for it
-            const postElement = document.createElement('div');  // actual blog item
-            //blogList.appendChild(postElement);
+
             // spotlight goes first
             if (postNum < 1) {
                 renderPost(post);
@@ -163,6 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error =>  console.error('Error loading blog posts:', error));
   
     renderPost = (post) => {
+        const postElement = document.createElement('div');  // actual blog item
         postElement.innerHTML = `
             <div class= "card mb-4"><a href="#!"><img class="card-img-top" src=${post.img} alt=${post.headline}/></a>
                 <div class="card-body">
