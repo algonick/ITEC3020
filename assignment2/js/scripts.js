@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                 </div>
             </div>`;   
+        return blogHTML;
     }    
         
 });
