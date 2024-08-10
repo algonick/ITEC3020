@@ -122,8 +122,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const moreBlogs = document.getElementById('moreBlogs');
 
     var newRow = false;
-    var rowHTML = "";
     var postNum = 0;
+
+    const rowElement = document.createElement('div');
 
     fetch('js/posts.json')
     .then(response => response.json())
@@ -146,18 +147,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 const postContainer = document.createElement('div');  //create blog container
                 postContainer.innerHTML += blogHTML;   // move the blog HTML into the container div element
                 postContainer.classList.add('col-lg-6');  // more-blogs container needs this class
-                rowHTML += postContainer;
+                rowElement.appendChild(postContainer);  //add blog to row container
 
                 if (newRow === true) {   //if first item (post already added above) go to next post
                     newRow = false;  // set newRow as false for next post
                 }else {       //if second item (post already added above) write out row             
                     const postRow = document.createElement('div');  // create blog row element
                     postRow.classList.add('row');   // give div the row container class
-                    postRow.innerHTML = rowHTML;   // set the innerHTML to the whole HTML of both containers
+                    postRow.appendChild(rowElement);   // set the innerHTML to the whole HTML of both containers
                     moreBlogs.appendChild(postRow);  //write the blog row
 
                     newRow = true;//reset flag for next pair
-                    rowHTML = ""; //clear out HTML holder for next pair 
+                    rowElement.innerHTML = ""; //clear out row container for next pair row
                 }   
             } 
         });
